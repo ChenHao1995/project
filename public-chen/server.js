@@ -3,13 +3,15 @@ var app = express()
 var consolidate = require('consolidate')
 
 
-
+app.use('/js',express.static('js'))
+app.use('/lib',express.static('lib'))
+app.use('/dist',express.static('dist'))
 app.engine('html',consolidate.ejs)
 app.set('view engine','html')
 app.set('views',__dirname + '/views')
 app.use('/home',function(req,res,next){
   res.render('home.html',{
-    title:'标题'
+    title:'home'
   })
 
 })
