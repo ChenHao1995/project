@@ -944,8 +944,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_n_zepto___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_n_zepto__);
 
 
+chen()
+__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://127.0.0.1:8848/api',{}).then(function(data){
+  console.log(data,'dataaaaaa')
+}).catch(function(err){
+  console.log(err,'errrrrr')
+})
 
-console.log(__WEBPACK_IMPORTED_MODULE_0_axios___default.a)
+
+function chen(){
+  alert('hahah')
+  arguments.callee()
+}
+
+console.log(__WEBPACK_IMPORTED_MODULE_0_axios___default.a,__WEBPACK_IMPORTED_MODULE_1_n_zepto___default.a)
 
 /***/ }),
 /* 9 */
