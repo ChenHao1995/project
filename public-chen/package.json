@@ -8,9 +8,9 @@
     "zepto": "^1.2.0"
   },
   "scripts": {
-    "dev": "npm-run-all --sequential build:dev start-dev",
+    "dev": "npm run start && npm run nodemon",
     "start": "webpack --config webpack/webpack.config.js",
-    "build": "babel js -d lib"
+    "nodemon": "nodemon server.js"
   },
   "name": "public-chen",
   "version": "1.0.0",

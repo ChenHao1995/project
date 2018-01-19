@@ -17,7 +17,7 @@ app.use('/home',function(req,res,next){
   })
 })
 app.use('/api',function(req,res,next){
-  axios.get('http://127.0.0.1:5100',{}).then(function(data){
+  axios.post('http://m.anfubaoxian.com/api',{}).then(function(data){
     console.log(data)
     res.send(JSON.stringify(data))
   }).catch(function(err){
