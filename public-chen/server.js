@@ -1,11 +1,16 @@
 var express = require('express')
+var bodyParser = require('body-parser')
 var app = express()
+var jsonParser = bodyParser.json()
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var consolidate = require('consolidate')
 var axios = require('axios')
+
 
 app.use('/js',express.static('js'))
 app.use('/lib',express.static('lib'))
 app.use('/dist',express.static('dist'))
+app.use('/style',express.static('style'))
 app.use('/',express.static('./'))
 app.engine('html',consolidate.ejs)
 app.set('view engine','html')
@@ -16,14 +21,22 @@ app.use('/home',function(req,res,next){
     title:'home'
   })
 })
-app.use('/api',function(req,res,next){
-  axios.post('http://m.anfubaoxian.com/api',{}).then(function(data){
-    console.log(data)
-    res.send(JSON.stringify(data))
-  }).catch(function(err){
-    console.log(err)
-    res.send(JSON.stringify(err))
-  })
+app.use('/api',jsonParser,function(req,res,next){
+  if(req.body){
+    console.log(req.body)
+    res.send(req.body)
+  } else {
+    res.send('err')
+  }
+
+  // axios.post('http://m.anfubaoxian.com/api',{}).then(function(data){
+  //   console.log(data)
+  //   res.send(JSON.stringify(data))
+  // }).catch(function(err){
+  //   console.log(err)
+  //   res.send(err.response.data)
+  // })
+  
 })
 
 app.listen(8848,function(err){

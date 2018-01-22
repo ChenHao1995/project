@@ -944,11 +944,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_n_zepto___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_n_zepto__);
 
 
-
-__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://127.0.0.1:8848/api',{}).then(function(data){
-  console.log('dataaaa')
+var a
+__WEBPACK_IMPORTED_MODULE_0_axios___default()({
+  method:'post',
+  url:'http://127.0.0.1:8848/api',
+  data:{
+    'boolean':true
+  },
+  headers:{
+    'afb-action':'chenhao'
+  }
+}).then(function(data){
+  console.log(data)
 }).catch(function(err){
-  console.log('errrrrr')
+  console.log(err)
 })
 
 //console.log(axios,$)

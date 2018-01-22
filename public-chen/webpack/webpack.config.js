@@ -4,10 +4,13 @@ var path = require('path')
 
 
 module.exports = {
-  entry:'./js/home.js',
+  entry:{
+    home:'./js/home.js',
+    index:'./js/index.js'
+  },
   output: {
     path:path.join(__dirname + '/../dist'),
-    filename:'home.js'
+    filename:'[name].js',
   },
   module: {
     rules: [
@@ -43,5 +46,11 @@ module.exports = {
         exclude: /node_modules/
       },
     ]
+  },
+  devServer:{
+    contentBase:'./dist',
+    hot: true,
+    host: '127.0.0.1',
+    historyApiFallback: true
   }
 }
