@@ -15,4 +15,15 @@ axios({
   console.log(err)
 })
 
+// window.onload = function(){
+//   console.log(document.getElementById('index').contentWindow)
+// }
+window.frames['index'].onload = function(){
+  console.log(document.getElementById('index').contentWindow.username)
+
+}
+
+
+
+
 //console.log(axios,$)

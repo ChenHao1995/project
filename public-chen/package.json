@@ -9,11 +9,12 @@
     "zepto": "^1.2.0"
   },
   "scripts": {
-    "dev": "npm run start && npm run webpackds && npm run nodemon",
+    "dev": "npm run webpackds",
+    "startServer":"npm run nodemon",
     "start": "webpack --config ./webpack/webpack.config.js",
     "nodemon": "nodemon server.js",
     "watch":"webpack --watch --config ./webpack/webpack.config.js",
-    "webpackds":"webpack-dev-server --hot --inline --progress --colors --port 8848 --config ./webpack/webpack.config.js"
+    "webpackds":"webpack-dev-server --hot --inline --progress --colors --port 8888 --config ./webpack/webpack.config.js"
   },
   "name": "public-chen",
   "version": "1.0.0",

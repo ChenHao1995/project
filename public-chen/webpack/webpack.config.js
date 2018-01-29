@@ -2,7 +2,7 @@ var webpack = require('webpack')
 var path = require('path')
 
 
-
+// console.log(path.join(__dirname + '/../dist'))
 module.exports = {
   entry:{
     home:'./js/home.js',
@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path:path.join(__dirname + '/../dist'),
     filename:'[name].js',
+    publicPath: '/chen/'
   },
   module: {
     rules: [
@@ -48,9 +49,15 @@ module.exports = {
     ]
   },
   devServer:{
-    contentBase:'./dist',
+    contentBase: path.join(__dirname + '/../dist') ,
     hot: true,
     host: '127.0.0.1',
     historyApiFallback: true
+    // proxy:{
+    //   '*':{
+    //     target:'http://127.0.0.1:8848'
+    //   }
+    // }
+    //path.join(__dirname + '/../dist')
   }
 }

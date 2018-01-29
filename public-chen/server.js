@@ -21,6 +21,11 @@ app.use('/home',function(req,res,next){
     title:'home'
   })
 })
+app.use('/index',function(req,res,next){
+  res.render('index.html',{
+    title:'index'
+  })
+})
 app.use('/api',jsonParser,function(req,res,next){
   if(req.body){
     console.log(req.body)
