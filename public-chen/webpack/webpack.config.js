@@ -1,6 +1,7 @@
 var webpack = require('webpack')
 var path = require('path')
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // console.log(path.join(__dirname + '/../dist'))
 module.exports = {
@@ -10,8 +11,8 @@ module.exports = {
   },
   output: {
     path:path.join(__dirname + '/../dist'),
-    filename:'[name].js',
-    publicPath: '/chen/'
+    filename:'[name].js'
+    //publicPath:"/assets/",
   },
   module: {
     rules: [
@@ -48,8 +49,9 @@ module.exports = {
       },
     ]
   },
+  devtool: 'eval-source-map',
   devServer:{
-    contentBase: path.join(__dirname + '/../dist') ,
+    contentBase:'./dist',
     hot: true,
     host: '127.0.0.1',
     historyApiFallback: true
@@ -60,4 +62,12 @@ module.exports = {
     // }
     //path.join(__dirname + '/../dist')
   }
+  // plugins: [
+  //   new CleanWebpackPlugin(['dist']),
+  //   new HtmlWebpackPlugin({
+  //     title: 'Hot Module Replacement'
+  //   }),
+  //   new webpack.NamedModulesPlugin(),
+  //   new webpack.HotModuleReplacementPlugin()
+  // ]
 }
