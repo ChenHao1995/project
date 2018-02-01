@@ -43,6 +43,15 @@ app.use('/api',jsonParser,function(req,res,next){
   // })
   
 })
+app.use('/req',jsonParser,function(req,res,next){
+  if(req.body){
+    console.log(req.body)
+    res.send(req.body)
+  } else {
+    
+  }
+
+})
 
 app.listen(8848,function(err){
   if(err){
