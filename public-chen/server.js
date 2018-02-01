@@ -6,7 +6,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var consolidate = require('consolidate')
 var axios = require('axios')
 
-
+//app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/js',express.static('js'))
 app.use('/lib',express.static('lib'))
 app.use('/dist',express.static('dist'))
@@ -33,6 +33,7 @@ app.use('/api',jsonParser,function(req,res,next){
   } else {
     res.send('err')
   }
+  next()
 
   // axios.post('http://m.anfubaoxian.com/api',{}).then(function(data){
   //   console.log(data)
@@ -43,14 +44,13 @@ app.use('/api',jsonParser,function(req,res,next){
   // })
   
 })
-app.use('/req',jsonParser,function(req,res,next){
+app.use('/req',urlencodedParser,function(req,res,next){
   if(req.body){
-    console.log(req.body)
+    console.log(typeof req.body)
     res.send(req.body)
   } else {
-    
+    res.send('server err')
   }
-
 })
 
 app.listen(8848,function(err){
